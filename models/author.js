@@ -1,3 +1,5 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config');
 
 const Author = sequelize.define('Author', {
   id: {
@@ -21,10 +23,4 @@ const Author = sequelize.define('Author', {
   timestamps: false 
 });
 
-sequelize.sync()
-  .then(() => {
-    console.log('Author model synchronized with database!');
-  })
-  .catch(err => {
-    console.error('Error synchronizing model:', err);
-  });
+module.exports = Author;
