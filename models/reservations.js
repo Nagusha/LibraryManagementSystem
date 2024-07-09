@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config');
 
 const Reservation = sequelize.define('Reservation', {
@@ -30,7 +30,6 @@ const Reservation = sequelize.define('Reservation', {
   modelName: 'Reservation',
   timestamps: false  
 });
-
 
 sequelize
     .authenticate()
