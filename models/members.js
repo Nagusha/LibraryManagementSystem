@@ -1,3 +1,5 @@
+const { DataTyes } = require('sequelize');
+const sequelize = require('../config');
 
 const Member = sequelize.define('Member', {
   id: {
@@ -24,11 +26,4 @@ const Member = sequelize.define('Member', {
   modelName: 'Member',
   timestamps: false  
 });
-
-sequelize.sync()
-  .then(() => {
-    console.log('Member model synchronized with database!');
-  })
-  .catch(err => {
-    console.error('Error synchronizing model:', err);
-  });
+module.exports = Members;
