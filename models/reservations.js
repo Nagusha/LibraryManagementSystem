@@ -1,3 +1,5 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config');
 
 const Reservation = sequelize.define('Reservation', {
   id: {
@@ -29,10 +31,4 @@ const Reservation = sequelize.define('Reservation', {
   timestamps: false  
 });
 
-sequelize.sync()
-  .then(() => {
-    console.log('Reservation model synchronized with database!');
-  })
-  .catch(err => {
-    console.error('Error synchronizing model:', err);
-  });
+module.exports = Members;
