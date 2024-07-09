@@ -1,18 +1,15 @@
 
 const { Sequelize } = require('sequelize');
+const { Author, Book, Loan, Members, Reservation } = require('./models');
 
-const sequelize = new Sequelize('database24', 'nagusha', 'demo12', {
-  host: 'localhost',
-  dialect: 'postgres', 
-});
 
-async function testConnection() {
+(async () => {
   try {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
+    await sequelize.sync({ force: true }); 
+    console.log('Database synchronized');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
-}
-
-testConnection();
+})();
