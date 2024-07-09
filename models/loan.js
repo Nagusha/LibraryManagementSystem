@@ -1,3 +1,5 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config');
 
 const Loan = sequelize.define('Loan', {
   id: {
@@ -33,6 +35,7 @@ const Loan = sequelize.define('Loan', {
   timestamps: false  
 });
 
+module.exports = Loan;
 
 sequelize.sync()
   .then(() => {
