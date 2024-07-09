@@ -35,12 +35,13 @@ const Loan = sequelize.define('Loan', {
   timestamps: false  
 });
 
+sequelize
+    .authenticate()
+    .then(() => {
+        console.log("Connection to the database has been established successfully.");
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
 module.exports = Loan;
-
-sequelize.sync()
-  .then(() => {
-    console.log('Loan model synchronized with database!');
-  })
-  .catch(err => {
-    console.error('Error synchronizing model:', err);
-  });
+module.exports = sequelize;
